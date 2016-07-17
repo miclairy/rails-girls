@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<% @projects.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |project| %>
+      <div class="col-md-4">
+        <%= image_tag project.picture_url, width: '100%' if project.picture.present?%>
+        <h4><%= link_to project.name, project %></h4>
+        <%= project.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<br>
